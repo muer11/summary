@@ -4,7 +4,7 @@
  * @Author: shenjia
  * @Date: 2020-11-19 10:49:56
  * @LastEditors: shenjia
- * @LastEditTime: 2020-11-20 15:00:04
+ * @LastEditTime: 2020-11-24 16:56:39
 -->
 
 1. Auto Close Tag
@@ -17,5 +17,7 @@
 7. 绑定快捷键：
    查看"keyboard-shortcuts-windows.png"；
    例：Command+p(Mac)/Ctrl+p(Windows) 快速打开文件，输入 > 来查看所有可用任务，@符号来获取当前文件所有的 Symbols(变量/函数/类名/方法等等)
+8. 设置快捷键：
+   “首选项”-“键盘快捷键”-进行设置
 
 参考：https://zhuanlan.zhihu.com/p/60394607
