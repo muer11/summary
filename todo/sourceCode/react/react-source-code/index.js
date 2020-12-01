@@ -1,24 +1,14 @@
-const { createElement } = require('react');
-
 /*
  * @Descripttion:
  * @version:
  * @Author: shenjia
  * @Date: 2020-11-24 13:17:50
  * @LastEditors: shenjia
- * @LastEditTime: 2020-11-24 17:17:51
+ * @LastEditTime: 2020-11-25 15:17:19
  */
-function createElementTest(tag, attrs, ...children) {
-  return {
-    tag,
-    attrs,
-    children
-  };
-}
 
-const React = {
-  createElement: createElementTest
-};
+import React from './React/index';
+import ReactDOM from './ReactDom/index';
 
 const element = (
   <div className="title">
@@ -26,4 +16,6 @@ const element = (
   </div>
 );
 
-console.log('element', element);
+console.log('element', React.createElement(element));
+
+ReactDOM.render(React.createElement(element), document.getElementById('root'));

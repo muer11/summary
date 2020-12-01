@@ -4,15 +4,23 @@
  * @Author: shenjia
  * @Date: 2020-11-24 19:51:40
  * @LastEditors: shenjia
- * @LastEditTime: 2020-11-24 21:48:05
+ * @LastEditTime: 2020-11-25 15:20:51
  */
 
 const ReactDOM = {
-  render
+  render: (vnode, container) => {
+    // 当多次调用render函数时，不会清除原来的内容，需先清除一下挂载目标DOM的内容
+    // container.innerHTML = '';
+    return render(vnode, container);
+  }
 };
 
+// console.log('ReactDOM', ReactDOM);
+
 // ReactDom.render(ele, document.querySelector('#root'))
-function render(vnode, container) {
+const render = (vnode, container) => {
+  console.log('render', vnode, container);
+
   // 若vnode未定义，则不处理
   if (vnode === undefined) return;
 
@@ -25,8 +33,9 @@ function render(vnode, container) {
   // 若vnode为虚拟DOM对象
   // createElement(tag,attrs,child1,child2,child3,child4...)
   const { tag, attrs, keys, childrens } = vnode;
+  // console.log(tag, vnode);
   const dom = document.createElement(tag);
-  console.log(dom);
+  // console.log('dom', dom);
 
   if (attrs) {
     // 有属性
@@ -40,20 +49,44 @@ function render(vnode, container) {
   // 递归渲染子节点
   childrens.forEach((child) => render(child, dom));
   return container.appendChild(dom);
-}
+};
 
-function setAttribute(dom, key, value) {
+const setAttribute = (dom, key, value) => {
   if (key === 'classname') {
     key = 'class';
   }
 
+  // 方法
   if (/on\w+/.test(key)) {
     // 转小写
     key = key.toLowerCase();
     dom[key] = value || '';
-  } else if (key === 'style') {
+  }
+  // 样式
+  else if (key === 'style') {
     if (!value || typeof value === 'string') {
       dom.style.cssText = value || '';
+    } else if (value && typeof value === 'object') {
+      for (let k in value) {
+        if (typeof value[k] === 'number') {
+          dom.style[k] = value[k] + 'px';
+        } else {
+          dom.style[k] = value[k];
+        }
+      }
     }
   }
-}
+  // 普通属性
+  else {
+    if (key in dom) {
+      dom[key] = value || '';
+    }
+    if (value) {
+      dom.setAttribute(key, value);
+    } else {
+      dom.removeAttribute(key);
+    }
+  }
+};
+
+export default ReactDOM;
