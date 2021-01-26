@@ -4,7 +4,7 @@
  * @Author: shenjia
  * @Date: 2021-01-18 11:16:46
  * @LastEditors: shenjia
- * @LastEditTime: 2021-01-18 12:11:39
+ * @LastEditTime: 2021-01-18 19:38:05
 -->
 # React-Fast-Refresh 热更新
 
@@ -68,3 +68,23 @@ Fast Refresh 基于 HMR ，自底至上依次为：
 1. React-Fast-Refresh
 2. 
 3. React-Hot-Loader
+
+
+从
+
+
+## 课后题
+
+1. 找到一个实现热替换的 Loader，看看其代码中都用到了哪些相关的 API？
+
+
+
+## 参考：
+
+[一分钟用上热更新 React Fast Refresh](https://segmentfault.com/a/1190000023534941?utm_source=tag-newest)
+
+[facebook HMR](https://github.com/facebook/react/issues/16604#issuecomment-528663101)
+
+[Fast Refresh原理剖析](http://www.ayqy.net/blog/fast-refresh-under-the-hood/#articleHeader1)
+
+[React Fast Refresh 來了](https://medium.com/itsoktomakemistakes/react-hot-loader-%E4%B8%8B%E4%B8%80%E4%BB%A3%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88-react-fast-refresh-%E4%BE%86%E4%BA%86-fd5087889e16)
